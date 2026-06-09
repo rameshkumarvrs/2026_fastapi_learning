@@ -26,3 +26,16 @@ async def book_create(book_data: CreateBookModel):
         "title": book_data.title,
         "author": book_data.author
     }
+
+class BookBorrowModel(BaseModel):
+    vangunavenna: str
+    eppo: str
+
+
+
+@app.post("/borrow_book")
+async def bok_borrow(borrow_data: BookBorrowModel):
+    return {
+        "vangunavenna": borrow_data.vangunavenna,
+        "eppo": borrow_data.eppo
+    }
